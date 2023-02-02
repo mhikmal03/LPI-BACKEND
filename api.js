@@ -5,6 +5,10 @@ const bodyParser = require('body-parser');
 require('dotenv').config();
 
 
+app.use(express.static('public')); 
+app.use('/images', express.static('images'));
+
+
 const port = process.env.PORT || 4500;
 
 const appRouting = require('./api/app');
