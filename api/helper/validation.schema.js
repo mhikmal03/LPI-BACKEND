@@ -51,5 +51,5 @@ module.exports = {
         filename: joi.string().min(5).max(150).required(),
         type: joi.string().min(3).max(10).required(),
         show_on_page: joi.bool().required()
-    })
+    }).options({ allowUnknown: true })
 }

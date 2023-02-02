@@ -11,8 +11,8 @@ module.exports = {
             filename: req.filename,
             type: req.type,
             show_on_page: req.show_on_page
-        }).then(() => {
-            return cb(null, "success upload");
+        }).then((data) => {
+            return cb(null, data);
         }).catch((error) => {
             return cb(error);
         })

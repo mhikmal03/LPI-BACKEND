@@ -10,7 +10,7 @@ const { galerySchema } = require('../helper/validation.schema');
 const upload = require('../helper/multer');
 
 module.exports = {
-    uploadToGalery: (req, res) => {
+    uploadToGalery: (req, res, next) => {
         upload(req, res, async (error) => {
             if(error) return ERROR(res, 500, error);
 
@@ -26,7 +26,15 @@ module.exports = {
             insertGalery(req.body, (error, result) => {
                 if(error) return ERROR(res, 500, error);
                 
-                return SUCCESS(res, 200, result);
+                result.id = result[0];
+                getGalery(result, (errors, results) => {
+                    if(errors) return ERROR(res, 500, errors);
+                    if(results.length == 0) return ERROR(res, 404, "Data not found");
+
+                    req.body.coverUrl = results[0].filename;
+                    req.params.id = result[0];
+                    next();
+                })
             });
         });
     },

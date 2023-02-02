@@ -10,7 +10,7 @@ const {
 
 router.get('/', allGalery);
 router.get('/admin/', tokenValidation, allGalery);
-router.post('/', tokenValidation, uploadToGalery);
+router.post('/', tokenValidation, uploadToGalery, detailGalery);
 router.get('/:id', tokenValidation, detailGalery);
 router.delete('/:id', tokenValidation, deleteFromGalery);
 
