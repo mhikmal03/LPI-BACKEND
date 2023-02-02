@@ -1,7 +1,7 @@
 const multer = require('multer');
 
 const storage = multer.diskStorage({
-    destination: './public/images/',
+    destination: './public/images',
     filename: (req, file, cb) => {
         cb(null, 'LP' + new Date().getMonth() + 
         new Date().getFullYear() + new Date().getDate() +

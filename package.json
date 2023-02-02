@@ -8,7 +8,7 @@
     "start": "next start",
     "serveApi": "node api.js",
     "runDB": "knex migrate:latest --knexfile ./api/db/knexfile.js && knex seed:run --knexfile ./api/db/knexfile.js",
-    "dbRefresh": "knex migrate:rollback --all --knexfile ./pages/api/db/knexfile.js && knex migrate:latest --knexfile ./pages/api/db/knexfile.js && knex seed:run --knexfile ./pages/api/db/knexfile.js",
+    "dbRefresh": "knex migrate:rollback --all --knexfile ./api/db/knexfile.js && knex migrate:latest --knexfile ./api/db/knexfile.js && knex seed:run --knexfile ./api/db/knexfile.js",
     "lint": "next lint"
   },
   "dependencies": {

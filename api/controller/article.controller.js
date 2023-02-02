@@ -1,5 +1,6 @@
 const { insertArticle, getAllArticle, deleteArticle, getArticle } = require('../service/article.service')
 const { ERROR, SUCCESS } = require('../helper/response');
+const upload = require('../helper/multer');
 
 module.exports = {
     allArticle: (req, res) => {
@@ -10,6 +11,7 @@ module.exports = {
     },
 
     postArticle: async (req, res) => {
+        
         try {
             if (req.method !== 'POST') return res.status(405).end();
         } catch (err) {
