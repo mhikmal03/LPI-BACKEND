@@ -14,6 +14,7 @@ module.exports = {
             })
     },
 
+
     insertArticle: (req, cb) => {
         db('article').insert({
             coverUrl: req.coverUrl,

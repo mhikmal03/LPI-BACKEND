@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const router = express.Router()
 
 const adminRouter = require('./route/admin.router');
 const reviewRouter = require('./route/review.router');
@@ -8,7 +9,7 @@ const dampakRouter = require('./route/dampak.router');
 const bukuRouter = require('./route/buku.router');
 const donasiRouter = require('./route/donasi.router');
 const subscribeRouter = require('./route/subscribe.router');
-const articleRouter = require('./route/article.router')
+const articleRouter = require('./route/article.router');
 
 
 
@@ -20,6 +21,10 @@ app.use('/buku', bukuRouter);
 app.use('/donasi', donasiRouter);
 app.use('/subscribe', subscribeRouter);
 app.use('/article', articleRouter )
+
+
+
+
 
 app.get('', (req, res) => {
     res.json("you're consume api");

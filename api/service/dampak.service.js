@@ -49,8 +49,14 @@ module.exports = {
         })
     },
     getAllDampak: (cb) => {
+        // db(`${tablename}`).select()
+        // .join('galery', 'galery.id_galery', `${tablename}.thumbnail`)
+        // .then((result) => {
+        //     return cb(null, result);
+        // }).catch((error) => {
+        //     return cb(error);
+        // })
         db(`${tablename}`).select()
-        .join('galery', 'galery.id_galery', `${tablename}.thumbnail`)
         .then((result) => {
             return cb(null, result);
         }).catch((error) => {
@@ -59,7 +65,6 @@ module.exports = {
     },
     getDampak: (req, cb) => {
         db(`${tablename}`)
-        .join('galery', 'galery.id_galery', `${tablename}.thumbnail`)
         .select().where('id', req.id)
         .then((result) => {
             return cb(null, result);
