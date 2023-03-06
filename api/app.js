@@ -23,9 +23,6 @@ app.use('/subscribe', subscribeRouter);
 app.use('/article', articleRouter )
 
 
-
-
-
 app.get('', (req, res) => {
     res.json("you're consume api");
 });

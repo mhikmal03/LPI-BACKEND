@@ -10,7 +10,7 @@ app.use(express.static('public'));
 app.use('/images', express.static('images'));
 
 
-const port = process.env.PORT || 4500;
+const port = process.env.PORT;
 
 const appRouting = require('./api/app');
 const { pagination } = require('./api/controller/article.controller');
@@ -22,5 +22,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use('/api', appRouting);
 
 app.listen(port, () => {
+    console.log(process.env.PORT);
     console.log(`app run at port ${port}`);
 });

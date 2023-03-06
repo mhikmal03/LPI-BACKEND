@@ -16,6 +16,7 @@ router.get('/pagination', pagination)
 
 // admin only
 router.get('/admin', tokenValidation, allArticle);
+router.get('/:id', getArticleId);
 router.get('/:id', tokenValidation, getArticleId);
 router.post('/', tokenValidation, uploadToGalery, postArticle);
 router.delete('/:id', tokenValidation, delArticle);
