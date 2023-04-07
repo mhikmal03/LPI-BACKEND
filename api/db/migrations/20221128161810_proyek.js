@@ -10,6 +10,7 @@
           .index('foreign_key_proyek_galery')
           .references('id_galery')
           .inTable('galery');
+        table.json('image').notNullable();
         table.string('nama', 150).notNullable();
         table.string('lokasi', 150);
         table.date('tanggal').notNullable();

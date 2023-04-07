@@ -28,6 +28,9 @@ module.exports = {
         public_id: joi.string().required()
     }),
     bukuSchema: joi.object({
+        show_on_page: joi.bool().required(),
+        filename: joi.string().min(5).max(150).required(),
+        type: joi.string().min(3).max(10).required(),
         coverUrl: joi.string().optional().allow(null),
         judul: joi.string().min(3).max(65).required(),
         penulis: joi.string().max(100).optional().allow(null),

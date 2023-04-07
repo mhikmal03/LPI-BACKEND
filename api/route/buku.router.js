@@ -8,10 +8,11 @@ const {
     updateBuku,
     detailBuku
 } = require('../controller/buku.controller');
+const { uploadToGalery } = require('../controller/galery.controller');
 
 router.get('/', allBuku);
 router.get('/admin/', tokenValidation, allBuku);
-router.post('/', tokenValidation, postBuku);
+router.post('/', tokenValidation, uploadToGalery, postBuku);
 router.get('/:id', detailBuku)
 router.put('/:id', tokenValidation, updateBuku);
 router.delete('/:id', tokenValidation, deleteBuku);

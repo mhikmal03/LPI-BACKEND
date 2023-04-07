@@ -7,16 +7,17 @@ const {
 } = require('../service/dampak.service');
 const { ERROR, SUCCESS } = require('../helper/response');
 const { dampakSchema } = require('../helper/validation.schema');
+const uploadArray = require('../helper/multer_array')
 
 module.exports = {
     postDampak: async (req, res) => {
         if(req.body.tanggal == null) req.body.tanggal = new Date();
         try{
-            await dampakSchema.validateAsync(req.body);
+            // await dampakSchema.validateAsync(req.body);
         }catch(err){
             return ERROR(res, 500, err.details[0].message);
         }
-        insertDampak(req.body, (error, result) => {
+        insertDampak(req, res, (error, result) => {
             if(error) return ERROR(res, 500, error);
             
             return SUCCESS(res, 200, result);
