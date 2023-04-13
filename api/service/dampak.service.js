@@ -4,7 +4,8 @@ const knexfile = require('../db/knexfile');
 const db = knex(knexfile.development);
 
 const tablename = 'proyek'
-const upload = require('../helper/multer_array')
+const upload = require('../helper/multer_array');
+const { json } = require("body-parser");
 
 
 module.exports = {
